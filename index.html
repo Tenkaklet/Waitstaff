@@ -24,7 +24,7 @@
               <article class="col-lg-6" id="mealDetails">
                   <div class="tagline">
                       <h4 class="text-center">Enter the Meal Details</h4>
-                      <form name="mealForm" class="form-group" ng-submit="ctrl.submit()">
+                      <form name="mealForm" class="form-group" novalidate ng-submit="ctrl.submit()">
                           <label for="base">Base Meal Price: $</label>
                           <input type="text" placeholder="9.99" id="base" ng-model="ctrl.input.mealPrice" required>
                           <br>
@@ -34,7 +34,7 @@
                           <label for="tip">Tip Percentage: %</label>
                           <input type="text" placeholder="" id="tip" required ng-model="ctrl.input.tip">
                           <br>
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="submit" class="btn btn-primary" ng-disabled="mealForm.$invalid">Submit</button>
                           <button type="button" class="btn btn-danger" name="cancel">Cancel</button>
                       </form>
                   </div>
@@ -42,14 +42,14 @@
               <article class="col-lg-6" id="results">
                   <div class="userResults-top" id="charges">
                       <h4 class="text-center">Customer Charges</h4>
-                      <p class="lead">Subtotal: </p>
+                      <p class="lead">Subtotal: {{ctrl.input.mealPrice + ctrl.input.tip | currency}}</p>
                       <p class="lead">Tip:</p>
                       <hr>
                       <p class="lead">Total</p>
                   </div>
                   <div class="userResults-bottom" id="eInfo">
                       <h4 class="text-center">My Earnings Info</h4>
-                      <p class="lead">Tip total:{{ctrl.input.mealPrice | currency}} </p>
+                      <p class="lead">Tip total:{{ctrl.tip | currency}} </p>
                       <p class="lead">Meal Count: </p>
                       <br>
                       <p class="lead">Average Tip Per Meal: </p>
