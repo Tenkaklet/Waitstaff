@@ -11,6 +11,8 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
         console.log(base + (base * (tax/100)));
         self.subTotal = base + (base * (tax/100));
         console.log(self.subTotal);
-
+        self.totalAll = self.subTotal + (self.subTotal * (tip/100));
+        console.log(self.totalAll);
+        self.tipping = tip += 1;
     };
 }]);
