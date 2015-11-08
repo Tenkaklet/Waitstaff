@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="waitstaffApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,20 +19,20 @@
       <header>
           <h1 class="text-center">Waitstaff Calculator</h1>
       </header>
-      <section class="container" id="calculator">
+      <section class="container" id="calculator" ng-controller="waitCtrl as ctrl">
           <div class="row">
               <article class="col-lg-6" id="mealDetails">
                   <div class="tagline">
                       <h4 class="text-center">Enter the Meal Details</h4>
-                      <form name="mealForm" class="form-group">
+                      <form name="mealForm" class="form-group" ng-submit="ctrl.submit()">
                           <label for="base">Base Meal Price: $</label>
-                          <input type="text" placeholder="9.99" id="base">
+                          <input type="text" placeholder="9.99" id="base" ng-model="ctrl.input.mealPrice" required>
                           <br>
                           <label for="taxRate">Tax Rate: %</label>
-                          <input type="text" placeholder="0" id="taxRate">
+                          <input type="text" placeholder="0" id="taxRate" required ng-model="ctrl.input.tax">
                           <br>
                           <label for="tip">Tip Percentage: %</label>
-                          <input type="text" placeholder="" id="tip">
+                          <input type="text" placeholder="" id="tip" required ng-model="ctrl.input.tip">
                           <br>
                           <button type="submit" class="btn btn-primary">Submit</button>
                           <button type="button" class="btn btn-danger" name="cancel">Cancel</button>
@@ -49,7 +49,7 @@
                   </div>
                   <div class="userResults-bottom" id="eInfo">
                       <h4 class="text-center">My Earnings Info</h4>
-                      <p class="lead">Tip total: </p>
+                      <p class="lead">Tip total:{{ctrl.input.mealPrice | currency}} </p>
                       <p class="lead">Meal Count: </p>
                       <br>
                       <p class="lead">Average Tip Per Meal: </p>
