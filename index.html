@@ -42,14 +42,15 @@
               <article class="col-lg-6" id="results">
                   <div class="userResults-top" id="charges">
                       <h4 class="text-center">Customer Charges</h4>
-                      <p class="lead">Subtotal: {{ctrl.input.mealPrice + ctrl.input.tip | currency}}</p>
+                      <p class="lead">Subtotal: {{ctrl.subTotal | currency}}</p>
                       <p class="lead">Tip:</p>
                       <hr>
                       <p class="lead">Total</p>
                   </div>
                   <div class="userResults-bottom" id="eInfo">
                       <h4 class="text-center">My Earnings Info</h4>
-                      <p class="lead">Tip total:{{ctrl.tip | currency}} </p>
+                      <p class="lead" ng-show="mealForm.$valid">Tip total:{{((ctrl.input.mealPrice + ctrl.input.tip)/100) | currency}} </p>
+                      <!-- <p class="lead" ng-show="mealForm.$valid">Tip total:{{((ctrl.input.mealPrice + ctrl.input.tip)/100) | currency}} </p> -->
                       <p class="lead">Meal Count: </p>
                       <br>
                       <p class="lead">Average Tip Per Meal: </p>
