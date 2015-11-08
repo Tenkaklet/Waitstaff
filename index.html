@@ -15,7 +15,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body ng-cloak>
       <header>
           <h1 class="text-center">Waitstaff Calculator</h1>
       </header>
@@ -29,13 +29,13 @@
                           <input type="number" placeholder="9.99" id="base" ng-model="ctrl.input.mealPrice" required>
                           <br>
                           <label for="taxRate">Tax Rate: %</label>
-                          <input type="text" placeholder="0" id="taxRate" required ng-model="ctrl.input.tax">
+                          <input type="number" placeholder="0" id="taxRate" required ng-model="ctrl.input.tax">
                           <br>
                           <label for="tip">Tip Percentage: %</label>
                           <input type="number" placeholder="" id="tip" required ng-model="ctrl.input.tip">
                           <br>
                           <button type="submit" class="btn btn-primary" ng-disabled="mealForm.$invalid">Submit</button>
-                          <button type="button" class="btn btn-danger" name="cancel">Cancel</button>
+                          <button type="button" class="btn btn-danger" ng-click="ctrl.cancel()" name="cancel">Cancel</button>
                       </form>
                   </div>
               </article>
@@ -47,13 +47,14 @@
                       <hr>
                       <p class="lead">Total : {{ctrl.totalAll | currency}}</p>
                   </div>
+                  <!-- My Earnings -->
                   <div class="userResults-bottom" id="eInfo">
                       <h4 class="text-center">My Earnings Info</h4>
-                      <p class="lead">Tip total: {{ctrl.tipping | currency}} </p>
+                      <p class="lead">Tip total: {{ctrl.tipTotal | currency}} </p>
                       <!-- <p class="lead" ng-show="mealForm.$valid">Tip total:{{((ctrl.input.mealPrice + ctrl.input.tip)/100) | currency}} </p> -->
-                      <p class="lead">Meal Count: {{ctrl.mealCount}} </p>
+                      <p class="lead">Meal Count: {{ctrl.numOfMeal}} </p>
                       <br>
-                      <p class="lead">Average Tip Per Meal: </p>
+                      <p class="lead">Average Tip Per Meal: {{ctrl.averageTip | currency}}</p>
                   </div>
               </article>
               <button type="button" class="btn btn-danger reset" name="reset">Reset</button>
