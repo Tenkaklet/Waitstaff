@@ -1,14 +1,34 @@
 body {
     background-color: #f9faff;
 }
-
 #mealDetails {
     border: 2px solid #000;
     height: 75vh;
+    width: 45%;
+    margin-right: 10px;
     form {
         width: 100%;
         label {
             font-size: 15px;
         }
     }
+}
+#results {
+    height: 75vh;
+    width: 45%;
+    margin: 0 auto;
+    .userResults-top {
+        padding: 15px;
+        margin-bottom: 30px;
+        border: 2px solid #000;
+    }
+    .userResults-bottom {
+        @extend .userResults-top;
+        margin-top: 86px;
+    }
+}
+.reset {
+    bottom: 40px;
+    right: 40px;
+    position: fixed;
 }

@@ -3,8 +3,26 @@ body {
 
 #mealDetails {
   border: 2px solid #000;
-  height: 75vh; }
+  height: 75vh;
+  width: 45%;
+  margin-right: 10px; }
   #mealDetails form {
     width: 100%; }
     #mealDetails form label {
       font-size: 15px; }
+
+#results {
+  height: 75vh;
+  width: 45%;
+  margin: 0 auto; }
+  #results .userResults-top, #results .userResults-bottom {
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 2px solid #000; }
+  #results .userResults-bottom {
+    margin-top: 86px; }
+
+.reset {
+  bottom: 40px;
+  right: 40px;
+  position: fixed; }
