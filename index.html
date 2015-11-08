@@ -26,13 +26,13 @@
                       <h4 class="text-center">Enter the Meal Details</h4>
                       <form name="mealForm" class="form-group" novalidate ng-submit="ctrl.submit()">
                           <label for="base">Base Meal Price: $</label>
-                          <input type="text" placeholder="9.99" id="base" ng-model="ctrl.input.mealPrice" required>
+                          <input type="number" placeholder="9.99" id="base" ng-model="ctrl.input.mealPrice" required>
                           <br>
                           <label for="taxRate">Tax Rate: %</label>
                           <input type="text" placeholder="0" id="taxRate" required ng-model="ctrl.input.tax">
                           <br>
                           <label for="tip">Tip Percentage: %</label>
-                          <input type="text" placeholder="" id="tip" required ng-model="ctrl.input.tip">
+                          <input type="number" placeholder="" id="tip" required ng-model="ctrl.input.tip">
                           <br>
                           <button type="submit" class="btn btn-primary" ng-disabled="mealForm.$invalid">Submit</button>
                           <button type="button" class="btn btn-danger" name="cancel">Cancel</button>
