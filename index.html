@@ -16,6 +16,34 @@
     <![endif]-->
   </head>
   <body>
+      <header>
+          <h1 class="text-center">Waitstaff Calculator</h1>
+      </header>
+      <section class="container" id="calculator">
+          <div class="row">
+              <article class="col-lg-6" id="mealDetails">
+                  <div class="tagline">
+                      <h4 class="text-center">Enter the Meal Details</h4>
+                      <form name="mealForm" class="form-group">
+                          <label for="base">Base Meal Price: $</label>
+                          <input type="text" placeholder="9.99" id="base">
+                          <br>
+                          <label for="taxRate">Tax Rate: %</label>
+                          <input type="text" placeholder="0" id="taxRate">
+                          <br>
+                          <label for="tip">Tip Percentage: %</label>
+                          <input type="text" placeholder="" id="tip">
+                          <br>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <button type="button" class="btn btn-danger" name="reset">Reset</button>
+                      </form>
+                  </div>
+              </article>
+              <article class="col-lg-6" id="results">
+                  <h4 class="text-center">Caluc</h4>
+              </article>
+          </div>
+      </section>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
