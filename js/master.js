@@ -25,7 +25,7 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
         // When form is submitted meal counter increments by 1.
         self.numOfMeal ++;
         // Calculate the tipTotal.
-        self.tipTotal = self.tipTotal + (self.tipping + tip);
+        self.tipTotal = self.tipTotal + self.tipping;
         // Calculate the average between tipTotal & numOfMeal.
         self.averageTip = self.numOfMeal / self.tipTotal;
     };
