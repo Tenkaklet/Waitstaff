@@ -12,14 +12,11 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
         var tip = self.input.tip;
         var base = self.input.mealPrice;
         var tax = self.input.tax;
-        console.log('Input prices of:', self.input);
+
         //Calculate sub Total
-        console.log(base + (base * (tax/100)));
         self.subTotal = base + (base * (tax/100));
-        console.log(self.subTotal);
         // Calculate totalAll dvs (subTotal & tip).
         self.totalAll = self.subTotal + (self.subTotal * (tip/100));
-        console.log(self.totalAll);
         // Calculate Tip
         self.tipping = self.subTotal * (tip/100);
         // When form is submitted meal counter increments by 1.
@@ -31,7 +28,6 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
     };
     self.cancel = function () {
         self.input = angular.copy(self.cancelValue);
-        console.log('hello there');
     };
     self.reset = function () {
         self.input = angular.copy(self.cancelValue);
