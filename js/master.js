@@ -3,8 +3,9 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
     //Make an empty object to enable cancel().
     self.cancelValue = {};
 
-    //set the meal counter to 0.
+    //set the meal counter to 0 && tipTotal to 0.
     self.numOfMeal = 0;
+    self.tipTotal = 0;
 
     self.submit = function () {
         // Declare of basic functionality variables.
@@ -24,7 +25,7 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
         // When form is submitted meal counter increments by 1.
         self.numOfMeal ++;
         // Calculate the tipTotal.
-        self.tipTotal = self.tipping + tip;
+        self.tipTotal = self.tipTotal + (self.tipping + tip);
         // Calculate the average between tipTotal & numOfMeal.
         self.averageTip = self.numOfMeal / self.tipTotal;
     };
@@ -38,7 +39,7 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
         self.totalAll = angular.copy(self.cancelValue);
         self.tipping = angular.copy(self.cancelValue);
         self.numOfMeal = 0;
-        self.tipTotal = angular.copy(self.cancelValue);
+        self.tipTotal = 0;
         self.averageTip = angular.copy(self.cancelValue);
     };
 }]);
