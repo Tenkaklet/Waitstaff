@@ -24,12 +24,21 @@ angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
         // When form is submitted meal counter increments by 1.
         self.numOfMeal ++;
         // Calculate the tipTotal.
-        self.tipTotal = self.tipping;
+        self.tipTotal = self.tipping + tip;
         // Calculate the average between tipTotal & numOfMeal.
         self.averageTip = self.numOfMeal / self.tipTotal;
     };
     self.cancel = function () {
         self.input = angular.copy(self.cancelValue);
         console.log('hello there');
+    };
+    self.reset = function () {
+        self.input = angular.copy(self.cancelValue);
+        self.subTotal = angular.copy(self.cancelValue);
+        self.totalAll = angular.copy(self.cancelValue);
+        self.tipping = angular.copy(self.cancelValue);
+        self.numOfMeal = 0;
+        self.tipTotal = angular.copy(self.cancelValue);
+        self.averageTip = angular.copy(self.cancelValue);
     };
 }]);
