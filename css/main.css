@@ -1,6 +1,16 @@
 body {
   background-color: #f9faff; }
 
+header {
+  margin-bottom: 20px; }
+  header nav {
+    width: 300px;
+    margin: 0 auto; }
+    header nav ul {
+      list-style: none; }
+      header nav ul li {
+        display: inline-block; }
+
 #mealDetails {
   border: 2px solid #000;
   height: 75vh;
