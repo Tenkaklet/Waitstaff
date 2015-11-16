@@ -1,13 +1,31 @@
 body {
     background-color: #f9faff;
 }
+header {
+    margin-bottom: 20px;
+    nav {
+        width: 300px;
+        margin: 0 auto;
+        ul {
+            list-style: none;
+            li {
+                display: inline-block;
+            }
+        }
+    }
+}
+.info {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
 #mealDetails {
     border: 2px solid #000;
     height: 75vh;
     width: 45%;
-    margin-right: 10px;
     form {
         width: 100%;
+        margin: 0 auto;
         label {
             font-size: 15px;
         }

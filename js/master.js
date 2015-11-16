@@ -1,41 +1,57 @@
-angular.module('waitstaffApp', []).controller('waitCtrl', [function (){
-    var self = this;
+var waitstaffApp = angular.module('waitstaffApp', ['ngRoute']);
+waitstaffApp.config(function($routeProvider, $locationProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'templates/home.html',
+        controller: 'waitCtrl',
+    })
+    .when('/new-meal', {
+        templateUrl: 'templates/new-meal.html',
+        controller: 'waitCtrl'
+    })
+    .when('/my-earnings', {
+        templateUrl: 'templates/my-earnings.html',
+        controller: 'waitCtrl'
+    })
+    .otherwise('/');    
+});
+waitstaffApp.controller('waitCtrl', [function (){
+    var $scope = this;
     //Make an empty object to enable cancel().
-    self.cancelValue = {};
+    $scope.cancelValue = {};
 
     //set the meal counter to 0 && tipTotal to 0.
-    self.numOfMeal = 0;
-    self.tipTotal = 0;
+    $scope.numOfMeal = 0;
+    $scope.tipTotal = 0;
 
-    self.submit = function () {
+    $scope.submit = function () {
         // Declare of basic functionality variables.
-        var tip = self.input.tip;
-        var base = self.input.mealPrice;
-        var tax = self.input.tax;
+        var tip = $scope.input.tip;
+        var base = $scope.input.mealPrice;
+        var tax = $scope.input.tax;
 
         //Calculate sub Total
-        self.subTotal = base + (base * (tax/100));
+        $scope.subTotal = base + (base * (tax/100));
         // Calculate totalAll dvs (subTotal & tip).
-        self.totalAll = self.subTotal + (self.subTotal * (tip/100));
+        $scope.totalAll = $scope.subTotal + ($scope.subTotal * (tip/100));
         // Calculate Tip
-        self.tipping = self.subTotal * (tip/100);
+        $scope.tipping = $scope.subTotal * (tip/100);
         // When form is submitted meal counter increments by 1.
-        self.numOfMeal ++;
+        $scope.numOfMeal ++;
         // Calculate the tipTotal.
-        self.tipTotal = self.tipTotal + self.tipping;
+        $scope.tipTotal = $scope.tipTotal + $scope.tipping;
         // Calculate the average between tipTotal & numOfMeal.
-        self.averageTip = self.numOfMeal / self.tipTotal;
+        $scope.averageTip = $scope.numOfMeal / $scope.tipTotal;
     };
-    self.cancel = function () {
-        self.input = angular.copy(self.cancelValue);
+    $scope.cancel = function () {
+        $scope.input = angular.copy($scope.cancelValue);
     };
-    self.reset = function () {
-        self.input = angular.copy(self.cancelValue);
-        self.subTotal = angular.copy(self.cancelValue);
-        self.totalAll = angular.copy(self.cancelValue);
-        self.tipping = angular.copy(self.cancelValue);
-        self.numOfMeal = 0;
-        self.tipTotal = 0;
-        self.averageTip = angular.copy(self.cancelValue);
+    $scope.reset = function () {
+        $scope.input = angular.copy($scope.cancelValue);
+        $scope.subTotal = angular.copy($scope.cancelValue);
+        $scope.totalAll = angular.copy($scope.cancelValue);
+        $scope.tipping = angular.copy($scope.cancelValue);
+        $scope.numOfMeal = 0;
+        $scope.tipTotal = 0;
+        $scope.averageTip = angular.copy($scope.cancelValue);
     };
 }]);
