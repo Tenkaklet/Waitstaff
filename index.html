@@ -15,7 +15,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-cloak>
+  <body ng-class="{loading: isLoading}" ng-cloak>
       <header>
           <h1 class="text-center">Waitstaff Calculator</h1>
           <nav>
@@ -27,14 +27,17 @@
           </nav>
       </header>
 
-      <section class="container" id="calculator" ng-view ng-controller="waitCtrl as ctrl">
-          <div class="row">
+      <main class="animate-view-container">
+          <section class="container animate-view" id="calculator" ng-view ng-controller="waitCtrl as ctrl">
+              <div class="row">
 
-          </div>
-      </section>
+              </div>
+          </section>
+      </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.4.7/angular-route.min.js"></script>
+    <script src="js/angular-animate.js"></script>
     <script src="js/master.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-var waitstaffApp = angular.module('waitstaffApp', ['ngRoute']);
+var waitstaffApp = angular.module('waitstaffApp', ['ngRoute','ngAnimate']);
 waitstaffApp.config(function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
         templateUrl: 'templates/home.html',
@@ -12,7 +12,20 @@ waitstaffApp.config(function($routeProvider, $locationProvider) {
         templateUrl: 'templates/my-earnings.html',
         controller: 'waitCtrl'
     })
-    .otherwise('/');    
+    .otherwise('/');
+})
+.run(function($rootScope, $location, $timeout) {
+    $rootScope.$on('$routeChangeEror', function() {
+        $locatio.path('/error');
+    });
+    $rootScope.$on('$routeChangeStart', function () {
+        $rootScope.isLoading = true;
+    });
+    $rootScope.$on('$routeChangeSuccess', function () {
+        $timeout(function () {
+            $rootScope.isLoading = false;
+        }, 1000);
+    });
 });
 waitstaffApp.controller('waitCtrl', [function (){
     var $scope = this;
