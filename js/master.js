@@ -12,7 +12,7 @@ waitstaffApp.config(function($routeProvider, $locationProvider) {
         templateUrl: 'templates/my-earnings.html',
         controller: 'waitCtrl'
     })
-    .otherwise('/');
+    .otherwise('/');    
 });
 waitstaffApp.controller('waitCtrl', [function (){
     var $scope = this;
@@ -54,7 +54,4 @@ waitstaffApp.controller('waitCtrl', [function (){
         $scope.tipTotal = 0;
         $scope.averageTip = angular.copy($scope.cancelValue);
     };
-}])
-.controller('someCtrl', function ($scope) {
-    $scope.message = 'hello';
-});
+}]);

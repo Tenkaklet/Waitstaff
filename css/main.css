@@ -11,13 +11,18 @@ header {
       header nav ul li {
         display: inline-block; }
 
+.info {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center; }
+
 #mealDetails {
   border: 2px solid #000;
   height: 75vh;
-  width: 45%;
-  margin-right: 10px; }
+  width: 45%; }
   #mealDetails form {
-    width: 100%; }
+    width: 100%;
+    margin: 0 auto; }
     #mealDetails form label {
       font-size: 15px; }
 
