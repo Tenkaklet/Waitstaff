@@ -11,7 +11,8 @@ waitstaffApp.config(function($routeProvider, $locationProvider) {
     .when('/my-earnings', {
         templateUrl: 'templates/my-earnings.html',
         controller: 'waitCtrl'
-    });
+    })
+    .otherwise('/');
 });
 waitstaffApp.controller('waitCtrl', [function (){
     var $scope = this;
